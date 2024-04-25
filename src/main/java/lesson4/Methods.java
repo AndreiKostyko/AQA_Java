@@ -31,9 +31,9 @@ public class Methods {
         int value = 50;
         if (value <= 0) {
             System.out.print("Красный");
-        } else if (value > 0 && value <= 100) {
+        } else if (value <= 100) {
             System.out.print("Желтый");
-        } else if (value > 100) {
+        } else {
             System.out.print("Зеленый");
         }
     }
@@ -53,14 +53,7 @@ public class Methods {
     //5. Напишите метод, принимающий на вход два целых числа и проверяющий, что их сумма лежит в пределах от 10 до 20 (включительно),
 // если да – вернуть true, в противном случае – false.
     public boolean amountRange(int a, int b) {
-        int sum = a + b;
-        if (sum >= 10 && sum <= 20) {
-            //System.out.println("true");
-            return true;
-        } else {
-            //System.out.println("false");
-            return false;
-        }
+        return (a + b) >= 10 && (a + b) <= 20;
     }
 
     //6. Напишите метод, которому в качестве параметра передается целое число, метод должен напечатать в консоль, положительное ли число передали или отрицательное.
@@ -75,22 +68,17 @@ public class Methods {
 
     //7. Напишите метод, которому в качестве параметра передается целое число.
 // Метод должен вернуть true, если число отрицательное, и вернуть false если положительное.
-    public boolean isNumberGreaterOrLess_0(int n) {
-        if (n >= 0) {
-            //System.out.println("true");
-            return true;
-        } else {
-            //System.out.println("false");
-            return false;
-        }
+    // Метод isNumberGreaterOrLess_0
+    //не надо тут if else, сразу возвращай результат сравнения
+
+    public boolean isNumberGreaterOrLessZero(int n) {
+        return n >= 0;
     }
 
     //8. Напишите метод, которому в качестве аргументов передается строка и число, метод должен отпечатать в консоль указанную строку, указанное количество раз;
     public void printLineXTimes(String str, int i) {
-        int n = i;
-        String s = str;
         while (i != 0) {
-            System.out.println(s);
+            System.out.println(str);
             i--;
         }
     }
@@ -98,13 +86,7 @@ public class Methods {
     //9. Напишите метод, который определяет, является ли год високосным, и возвращает boolean (високосный - true, не високосный - false).
 // Каждый 4-й год является високосным, кроме каждого 100-го, при этом каждый 400-й – високосный.
     public boolean isLeapYear(int year) {
-        if ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0))) {
-            System.out.println("true");
-            return true;
-        } else {
-            System.out.println("false");
-            return false;
-        }
+        return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
     }
 
     //10. Задать целочисленный массив, состоящий из элементов 0 и 1. Например: [ 1, 1, 0, 0, 1, 0, 1, 1, 0, 0 ].
@@ -136,17 +118,13 @@ public class Methods {
     //12. Задать массив [ 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1 ] пройти по нему циклом, и числа меньшие 6 умножить на 2;
     public void multiply2SomeElements() {
         int[] arr = new int[]{1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        System.out.println();
-        int[] arrNew = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] < 6) {
-                arrNew[i] = arr[i] * 2;
-            } else
-                arrNew[i] = arr[i];
-
+                arr[i] *= 2;
+            }
         }
-       /*for (int i : arrNew) {
-            System.out.print(i + " ");
+       /*for (int iq : arr) {
+            System.out.print(iq + " ");
         }*/
     }
 
@@ -158,7 +136,6 @@ public class Methods {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0, x = arr[i].length - 1; j < arr[i].length; j++, x--) {
                 if (i == j || i == x) arr[i][j] = 1;
-                else arr[i][j] = 0;
                 System.out.print(arr[i][j] + " ");
             }
             System.out.println();

@@ -9,7 +9,7 @@ public class Main {
         methods.compareNumbers();
         methods.amountRange(10, 5);
         methods.isPositiveOrNegativeNumber(-1);
-        methods.isNumberGreaterOrLess_0(2);
+        methods.isNumberGreaterOrLessZero(2);
         methods.printLineXTimes("Hello", 3);
         methods.isLeapYear(65);
         methods.replace0to1();
