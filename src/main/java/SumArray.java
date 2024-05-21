@@ -4,10 +4,10 @@ public class SumArray {
 
         int sum = 0;
 
-        if (4 != strArray.length)
+        if (strArray.length != 4)
             throw new MyArraySizeException("Неверный размер массива");
         for (int i = 0; i < strArray.length; i++) {
-            if (4 != strArray[i].length) throw new MyArraySizeException("Неверный размер массива");
+            if (strArray[i].length != 4) throw new MyArraySizeException("Неверный размер массива");
             for (int j = 0; j < strArray[i].length; j++) {
                 try {
                     sum += Integer.parseInt(strArray[i][j]);
