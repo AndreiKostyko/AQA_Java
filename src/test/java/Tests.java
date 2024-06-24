@@ -1,3 +1,4 @@
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import base.BaseTest;
 import org.testng.annotations.Test;
@@ -15,6 +16,7 @@ public class Tests extends BaseTest {
 
     // 1. Проверить название указанного блока;
     @Test
+    @Description("Тест названия блока")
     public void testNameOfBlock() {
         Assert.assertEquals(homePage.getNameOfBlock(), expNameOfBlock,
                 "Не верное название блока Онлайн пополнение без комиссии");
@@ -22,6 +24,7 @@ public class Tests extends BaseTest {
 
     // 2. Проверить наличие логотипов платёжных систем;
     @Test
+    @Description("Тест наличия логотипов платежных систем")
     public void testLogoOfPaySystem() {
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(homePage.logoIsPresenceVisa(), true,
@@ -39,6 +42,7 @@ public class Tests extends BaseTest {
 
     //3. Проверить работу ссылки «Подробнее о сервисе»;
     @Test
+    @Description("Проверка ссылки «Подробнее о сервисе»")
     public void testАboutServiceLink() {
         AboutServicePage aboutServicePage = homePage.clickMoreАboutServiceLink();
         Assert.assertEquals(aboutServicePage.getAboutServicePageURL(), aboutServicePageURL,
@@ -48,6 +52,7 @@ public class Tests extends BaseTest {
     //4. Заполнить поля и проверить работу кнопки «Продолжить»
     // (проверяем только вариант «Услуги связи», номер для теста 297777777)
     @Test
+    @Description("Тест заполниения формы и кропки Продолжить")
     public void testContinueBut() {
         homePage.fillPhoneNumberField(numberOfPhone);
         homePage.fillAmountField(sumOfPayment);
@@ -55,6 +60,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Description("Тест формы оплаты услуг")
     public void testConnectionPay() {
         HomePage.ListWhatToPay listWhatToPay = new HomePage.ListWhatToPay();
         listWhatToPay.selectCommunicationServicesPoint();
@@ -66,6 +72,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Description("Тест оплаты домашнего интеренета")
     public void testInternetPay() {
         HomePage.ListWhatToPay listWhatToPay = new HomePage.ListWhatToPay();
         listWhatToPay.selectHomeInternetPoint();
@@ -77,6 +84,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Description("Тест оплаты в рассрочку")
     public void testInstallmentsPay() {
         HomePage.ListWhatToPay listWhatToPay = new HomePage.ListWhatToPay();
         listWhatToPay.selectInstallmentsPoint();
@@ -89,6 +97,7 @@ public class Tests extends BaseTest {
 
 
     @Test
+    @Description("Тест оплаты задолженности")
     public void testArrearsPay() {
         HomePage.ListWhatToPay listWhatToPay = new HomePage.ListWhatToPay();
         listWhatToPay.selectArrearsPoint();
@@ -100,6 +109,7 @@ public class Tests extends BaseTest {
     }
 
     @Test
+    @Description("Тест фрейма")
     public void Frame() throws InterruptedException {
         homePage.fillPhoneNumberField(numberOfPhone);
         homePage.fillAmountField(sumOfPayment);
